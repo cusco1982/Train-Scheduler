@@ -46,7 +46,7 @@ $("#add-employee-btn").on("click", function(event) {
   console.log(newEmp.start);
   console.log(newEmp.rate);
 
-  alert("Employee successfully added");
+  alert("Train successfully added");
 
   // Clears all of the text-boxes
   $("#employee-name-input").val("");
@@ -67,12 +67,15 @@ database.ref().on("child_added", function(childSnapshot) {
 
   // Employee Info
   console.log(empName);
+//   destination
   console.log(empRole);
+//   first train time
   console.log(empStart);
+//   frequency(min)
   console.log(empRate);
 
   // Prettify the employee start
-  var empStartPretty = moment.unix(empStart).format("MM/DD/YYYY");
+//   var empStartPretty = moment.unix(empStart).format("MM/DD/YYYY");
 
   // Calculate the months worked using hardcore math
   // To calculate the months worked
@@ -87,10 +90,10 @@ database.ref().on("child_added", function(childSnapshot) {
   var newRow = $("<tr>").append(
     $("<td>").text(empName),
     $("<td>").text(empRole),
-    $("<td>").text(empStartPretty),
-    $("<td>").text(empMonths),
     $("<td>").text(empRate),
-    $("<td>").text(empBilled)
+    $("<td>").text(empRate),
+    $("<td>").text(empRate),
+    // $("<td>").text(empBilled)
   );
 
   // Append the new row to the table
